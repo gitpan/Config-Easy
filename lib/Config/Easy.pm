@@ -2,7 +2,7 @@ use strict;
 package Config::Easy;
 use Carp qw/croak/;
 
-our $VERSION = "0.1";
+our $VERSION = "0.2";
 our %C;
 my ($fname, $fromfile, $atline, $expanded);
 use constant STRICT => " strict";        # key for strict_hash emulation
@@ -188,6 +188,8 @@ sub _init {
 
 #
 # get overriding key=value pairs on the command line
+# unless that argument begins with a -- in conformance
+# with Getopt::Long conventions.
 #
 sub args {
     my ($self) = @_;        # may be set or not
@@ -199,7 +201,7 @@ sub args {
             push @NEWARGV, "--", @ARGV;
             last;
         }
-        if (($k, $v) = $arg =~ /^(.*)=(.*)$/) {
+        if ((($k, $v) = $arg =~ /^(.*)=(.*)$/) and $k !~ /^--/) {
             warn "warning: no '$k' key in config file to override\n"
                 unless ($self)? exists $self->{$k}:
                                 exists $C{$k};
@@ -371,7 +373,7 @@ be exported into the current package.  You need to have:
   use Config::Easy 'conf.txt';
 
 only once in the main file before anyone needs to look
-at the $C hash.
+at the %C hash.
 
 =head1 STRICT
 
