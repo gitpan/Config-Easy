@@ -1,0 +1,37 @@
+# comment
+# and blank lines:
+
+name	Jon
+age		54		# yes - comment on the line
+phrase  "  this is \# real good  "
+ids     23    \
+        34 \
+		45\		# no space here
+		56
+nums    [ 3 4 5 ]
+colors  [ red green yellow ]
+colors2  [
+	red
+	green 
+	yellow
+]
+status	bugged
+mline   -
+1
+2
+3
+.
+mline2   '1
+ 2 
+3'
+aisle	{ paper        4a \
+          canned_fruit 3b \
+		}
+aisle2	{
+	paper        4a
+	canned_fruit 3b
+}
+sentence   I am $name aged $age.
+
+path	/a/b/c.\$date.gz
+trigger	/trig/d.\$time.gz

@@ -1,0 +1,13 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Mod.pm
+t/conf
+t/conf1
+t/conf2
+t/test.t
+t/testargs.t
+t/testargs2.t
+lib/Config/Easy.pm
+META.yml                                 Module meta-data (added by MakeMaker)
